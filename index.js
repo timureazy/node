@@ -1,0 +1,33 @@
+const express = require('express');
+const exphbs = require('express-handlebars');
+const routeHome = require('./routes/routeHome');
+const routeTicket = require('./routes/routeTicket');
+const routeBack = require('./routes/routeReturn');
+const routeRoutes = require('./routes/routeRoutes.js');
+const routeSignIn = require('./routes/routeIn.js');
+const routeSignUp = require('./routes/routeUp.js');
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+const hbs = exphbs.create({
+    defaultLayout: 'main',
+    extname: 'hbs'
+})
+
+app.engine('hbs', hbs.engine); //указываем название движка(шаблонизатора) и прописываем сам движок
+app.set('view engine', 'hbs'); //указываем, что данный движок отвечает за шаблоны
+app.set('views', 'views');     //указываем папку с представлениями
+
+app.use(express.static('public')); //указываем статическую папку, експресс будет в нее смотреть, когда увидит обращения к /
+
+app.use('/', routeHome);
+app.use('/tickets', routeTicket);
+app.use('/ticketsback', routeBack);
+app.use('/routeslist', routeRoutes);
+app.use('/signin', routeSignIn);
+app.use('/signup', routeSignUp);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})

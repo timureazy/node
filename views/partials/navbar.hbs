@@ -1,0 +1,34 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Забронировать билет</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {{#if isRoutes}}
+        <li class="active"><a href="/routeslist">Список маршрутов</a></li>
+        {{else}}
+        <li><a href="/routeslist">Список маршрутов</a></li>
+        {{/if}}
+        {{#if isBuy}}
+        <li class="active"><a href="/tickets">Купить билет</a></li>
+        {{else}}
+        <li><a href="/tickets">Купить билет</a></li>
+        {{/if}}
+        {{#if isBack}}
+        <li class="active"><a href="/ticketsback">Сдать билет</a></li>
+        {{else}}
+        <li><a href="/ticketsback">Сдать билет</a></li>
+        {{/if}}
+        {{#if isSignIn}}
+        <li class="active"><a href="/signin">Войти</a></li>
+        {{else}}
+        <li><a href="/signin">Войти</a></li>
+        {{/if}}
+        {{#if isSignUp}}
+        <li class="active"><a href="/signup">Регистрация</a></li>
+        {{else}}
+        <li><a href="/signup">Регистрация</a></li>
+        {{/if}}
+
+
+      </ul>
+    </div>
+  </nav>
