@@ -6,6 +6,7 @@ const routeBack = require('./routes/routeReturn');
 const routeRoutes = require('./routes/routeRoutes.js');
 const routeSignIn = require('./routes/routeIn.js');
 const routeSignUp = require('./routes/routeUp.js');
+const routeAbout = require('./routes/routeAbout')
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ app.use('/ticketsback', routeBack);
 app.use('/routeslist', routeRoutes);
 app.use('/signin', routeSignIn);
 app.use('/signup', routeSignUp);
+app.use('/about', routeAbout);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
