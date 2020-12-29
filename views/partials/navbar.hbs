@@ -17,6 +17,11 @@
         {{else}}
         <li><a href="/ticketsback">Сдать билет</a></li>
         {{/if}}
+        {{#if isMyTickets}}
+        <li class="active"><a href="/usersTickets">Мои билеты</a></li>
+        {{else}}
+        <li><a href="/usersTickets">Мои билеты</a></li>
+        {{/if}}
         {{#if isSignIn}}
         <li class="active"><a href="/signin">Войти</a></li>
         {{else}}
@@ -26,7 +31,7 @@
         <li class="active"><a href="/signup">Регистрация</a></li>
         {{else}}
         <li><a href="/signup">Регистрация</a></li>
-        
+        {{/if}}
 
 
       </ul>

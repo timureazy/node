@@ -1,1 +1,38 @@
 <h1>Купить билеты</h1>
+
+<div class="row">
+    <form class="col s12" action="/tickets" method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email"  name="email" class="validate" required>
+          <label for="email">Email</label>
+          <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="name" type="text" name="name" class="validate" required>
+          <label for="name">Имя</label>
+          <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+        <div class="input-field col s6">
+          <input id="surname" type="text" name="surname" class="validate" required>
+          <label for="surname">Фамилия</label>
+          <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="from" type="text" name="from" class="validate" required>
+          <label for="from">Точка отправки</label>
+          <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+        <div class="input-field col s6">
+          <input id="to" type="text" name="to" class="validate" required>
+          <label for="to">Точка назначения</label>
+          <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+      </div>
+      <button class="btn" type="submit">Забронировать</button>
+    </form>
+  </div>
