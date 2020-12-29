@@ -1,5 +1,5 @@
 const fs = require('fs')
-const uuid = require('uuid')
+const {uuid} = require('uuidv4')
 const path = require('path')
 
 class Ticket {
@@ -11,6 +11,7 @@ class Ticket {
         this.from = from
         this.to = to
         this.price = Math.floor((Math.random() * (10000-1000)) + 1000)
+        this.id = uuid()
     }
 
     toJSON() {
@@ -20,7 +21,8 @@ class Ticket {
             buyerSurname: this.buyerSurname,
             from: this.from,
             to: this.to,
-            price: this.price
+            price: this.price,
+            id: this.id
         }
     }
 
@@ -46,6 +48,11 @@ class Ticket {
                 resolve(JSON.parse(content))
             })
         })
+    }
+
+    static async getById(id) {
+        const tickets = await Ticket.getAll()
+        return tickets.find(ticket => ticket.id === id)
     }
 
 }
