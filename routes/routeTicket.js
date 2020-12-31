@@ -11,10 +11,21 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const ticket = new Ticket(req.body.name, req.body.email, req.body.surname, req.body.from, req.body.to);
-    console.log(req.name)
-    await ticket.save()
-    res.redirect('/')
+    
+    const ticket = new Ticket({
+        buyerName: req.body.name,
+        buyerEmail: req.body.email,
+        buyerSurname: req.body.surname,
+        from: req.body.from,
+        to: req.body.to
+    })
+    try {
+        await ticket.save()
+        res.redirect('/')
+    } catch(e) {
+        console.log(e)
+    }
+    
 })
 
 

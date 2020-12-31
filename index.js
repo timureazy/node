@@ -1,5 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const mongoose = require('mongoose')
 const routeHome = require('./routes/routeHome')
 const routeTicket = require('./routes/routeTicket')
 const routeBack = require('./routes/routeReturn')
@@ -8,6 +9,7 @@ const routeSignIn = require('./routes/routeIn.js')
 const routeSignUp = require('./routes/routeUp.js')
 const routeAbout = require('./routes/routeAbout')
 const routeOwnTickets = require('./routes/routeOwn')
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -32,6 +34,17 @@ app.use('/signin', routeSignIn);
 app.use('/signup', routeSignUp);
 app.use('/about', routeAbout);
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+async function start() {
+    try {
+        const url = `mongodb+srv://VpiStudent:VPXlcHyXx7N9yLaD@cluster0.oskra.mongodb.net/<dbname>?retryWrites=true&w=majority`
+        await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        })
+    } catch(e) {
+        console.log(e)
+    }
+}
+
+start()
+
