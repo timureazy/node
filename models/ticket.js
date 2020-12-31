@@ -20,6 +20,10 @@ const ticket = new Schema({
     to: {
         type: String,
         required: true
+    },
+    price: {
+        type: Number,
+        default: Math.floor(1000 + Math.random() * (10000 + 1 - 1000))
     }
 })
 
