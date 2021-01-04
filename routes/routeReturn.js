@@ -11,5 +11,17 @@ router.get('/:id', async (req, res) => {
     })
 })
 
+router.post('/return/:id', async (req, res) => {
+   try {
+    await Ticket.deleteOne({
+        _id: req.body.id
+    })
+    res.redirect('/userstickets')
+   } catch(e) {
+    console.log(e)
+   }
+    
+})
+
 
 module.exports = router;

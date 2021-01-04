@@ -1,6 +1,11 @@
 const {Schema, model} = require('mongoose')
 
 const ticket = new Schema({
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     buyerName: {
         type: String,
         required: true

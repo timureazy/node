@@ -12,8 +12,11 @@
           <p class="price">{{ticket.price}}</p>
         </div>
         <div class="card-action">
-          <a href="#">Вернуть</a>
-        </div>
+          <form action="/ticketsback/return/:{{ticket._id}}" method="POST">
+          <input type="hidden" name="id" value="{{ticket._id}}">
+            <button class="btn red" type="submit">Вернуть</button>
+          </form>
+        
       </div>
     </div>
   </div>

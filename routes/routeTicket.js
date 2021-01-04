@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     
     const ticket = new Ticket({
+        userId: req.user,
         buyerName: req.body.name,
         buyerEmail: req.body.email,
         buyerSurname: req.body.surname,
