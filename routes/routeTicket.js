@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
     })
     try {
         await ticket.save()
+        await req.user.addToCart(ticket)
         res.redirect('/')
     } catch(e) {
         console.log(e)

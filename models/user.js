@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose')
+const ticket = require('./ticket')
 
 const userSchema = new Schema({
     email: {
@@ -34,5 +35,15 @@ const userSchema = new Schema({
         ]
     }
 })
+
+userSchema.methods.addToCart = function(ticket) {
+    const items = [...this.ticketCart.items]
+    items.push({
+        count: 0,
+        ticketId: ticket._id
+    })
+    this.ticketCart = {items}
+    return this.save()
+}
 
 module.exports = model('User', userSchema)
