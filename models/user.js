@@ -46,4 +46,14 @@ userSchema.methods.addToCart = function(ticket) {
     return this.save()
 }
 
+userSchema.methods.removeFromCart = function(id) {
+    let items = [...this.ticketCart.items]
+    const idx = items.findIndex(c => {c.ticketId.toString() === id.toString()})
+    if(idx) {
+        items = items.filter(c=> {c.ticketId.toString() !== id.toString()})
+    } 
+    this.ticketCart = {items}
+    return this.save()
+}
+
 module.exports = model('User', userSchema)
