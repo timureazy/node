@@ -9,6 +9,7 @@ const routeSignIn = require('./routes/routeIn.js')
 const routeSignUp = require('./routes/routeUp.js')
 const routeAbout = require('./routes/routeAbout')
 const routeOwnTickets = require('./routes/routeOwn')
+const routeAdd = require('./routes/routeAdd.js')
 const User = require('./models/user')
 const app = express();
 
@@ -26,21 +27,23 @@ app.use(express.static('public')); //указываем статическую �
 app.use(express.urlencoded({extended:true}))
 app.use(async (req, res, next) => {
     try{
-        const user = await User.findById('5ff302872411ac11c478438a')
+        const user = await User.findById('5ffb4037b82cc41678f773e2')
         req.user = user
         next()
     } catch(e) {
         console.log(e)
     }
 })
-app.use('/', routeHome);
-app.use('/tickets', routeTicket);
-app.use('/ticketsback', routeBack);
-app.use('/routeslist', routeRoutes);
-app.use('/userstickets', routeOwnTickets);
-app.use('/signin', routeSignIn);
-app.use('/signup', routeSignUp);
-app.use('/about', routeAbout);
+app.use('/', routeHome)
+app.use('/tickets', routeTicket)
+app.use('/ticketsback', routeBack)
+app.use('/routeslist', routeRoutes)
+app.use('/userstickets', routeOwnTickets)
+app.use('/signin', routeSignIn)
+app.use('/signup', routeSignUp)
+app.use('/about', routeAbout)
+app.use('/addroute', routeAdd)
+
 
 async function start() {
     try {
