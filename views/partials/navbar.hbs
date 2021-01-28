@@ -7,7 +7,20 @@
         {{else}}
         <li><a href="/routeslist">Список маршрутов</a></li>
         {{/if}}
-        {{#if isBuy}}
+        {{#if isAdmin}}
+        {{#if isAdd}}
+        <li class="active"><a href="/addroute">Добавить маршрут</a></li>
+        {{else}}
+        <li ><a href="/addroute">Добавить маршрут</a></li>
+        {{/if}}
+        {{#if isStat}}
+        <li class="active"><a href="/stat">Смотреть статистику</a></li>
+        {{else}}
+        <li ><a href="/stat">Смотреть статистику</a></li>
+        {{/if}}
+        {{/if}}
+        {{#if isAuth}}
+         {{#if isBuy}}
         <li class="active"><a href="/tickets">Купить билет</a></li>
         {{else}}
         <li><a href="/tickets">Купить билет</a></li>
@@ -17,18 +30,21 @@
         {{else}}
         <li><a href="/usersTickets">Мои билеты</a></li>
         {{/if}}
-        {{#if isSignIn}}
-        <li class="active"><a href="/signin">Войти</a></li>
-        {{else}}
-        <li><a href="/signin">Войти</a></li>
+        {{#if true}}
+        <li><a href="/auth/logout">Выйти</a></li>
         {{/if}}
+        {{else}}
         {{#if isSignUp}}
         <li class="active"><a href="/signup">Регистрация</a></li>
         {{else}}
         <li><a href="/signup">Регистрация</a></li>
         {{/if}}
-
-
+        {{#if isSignIn}}
+        <li class="active"><a href="/signin">Войти</a></li>
+        {{else}}
+        <li><a href="/signin">Войти</a></li>
+        {{/if}}
+        {{/if}}
       </ul>
     </div>
   </nav>

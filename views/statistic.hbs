@@ -1,0 +1,13 @@
+<h1>Статистика</h1>
+
+{{#if tickets.length}}
+{{#each tickets}}
+
+<div class="row">
+    <h5>Владелец билета {{buyerEmail}}</h5>
+    <p>Дата покупки {{date}}</p>
+    <p>Ценовая категория <span class="price">{{price}}</span></p>
+</div>
+
+{{/each}}
+{{/if}}

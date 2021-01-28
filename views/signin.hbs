@@ -1,1 +1,25 @@
 <h1>Войти</h1>
+{{#if loginError}}
+<p class="alert">{{loginError}}</p>
+{{/if}}
+{{#if error}}
+<p class="alert">{{error}}</p>
+{{/if}}
+<div class="row">
+    <form class="col s12" action="/auth/login" method="POST">
+      <div class="row">
+        <div class="input-field col s12">
+            <input id="email" type="text" class="validate" name="email">
+            <label for="email">Login</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <button class="btn" type="submit">Войти</button>
+    </form>
+  </div>
+        

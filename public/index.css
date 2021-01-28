@@ -1,3 +1,15 @@
 .nav-wrapper {
     padding: 0 2rem;
 }
+
+.alert {
+    padding: .5rem 1rem;
+    text-align: center;
+    border-radius: 10px;
+    color: red;
+    background-color: rgba(255, 0, 0, .3);
+}
+
+.none{
+    display: none
+}

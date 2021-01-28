@@ -1,16 +1,5 @@
 <h1>Добавить маршрут</h1>
-<button id="addStock" class="btn">Добавить</button>
-<form method="POST">
-<div>
-  {{#if stocks.length}}
-  {{#each stocks}}
-    <p>{{stockNumber}}</p>
-  {{/each}}
-  {{else}}
-  <p>Поездов нет</p>
-  
-  {{/if}}
-</div>
+<form method="POST" action="/addRoute">
 <ul class="collapsible expandable">
     </li>
     <li>
@@ -35,14 +24,25 @@
       </div>
       </div>
     </li>
+     <li>
+      <div class="collapsible-header"><i class="material-icons">add_alarm</i>Дата</div>
+      <div class="collapsible-body">
+        <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <input  type="text" name="start_date" placeholder="Дата отправки">
+          <input  type="text" name="end_date"   placeholder="Дата прибытия">
+        </div>
+      </div>
+      </div>
+    </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">add</i>Состав</div>
       <div class="collapsible-body">
         <div class="row">
           <div class="input-field col s6 offset-s3">
             <p><span>Выберите количество и тип вагонов</span></p>
-            <input  type="text" name="econ_type"    placeholder="Количество типа эконом">
-            <input  type="text" name="stand_type"   placeholder="Количество типа стандарт">
+            <input  type="text" name="low_type"    placeholder="Количество типа эконом">
+            <input  type="text" name="middle_type"   placeholder="Количество типа стандарт">
             <input  type="text" name="lux_type"     placeholder="Количество типа люкс">
           </div>
         </div>
@@ -54,8 +54,8 @@
         <div class="row">
           <div class="input-field col s6 offset-s3">
             <p><span>Выберите цену места соответственно типу вагона</span></p>
-            <input  type="text" name="econ_price"    placeholder="Цена эконом">
-            <input  type="text" name="stand_price"   placeholder="Цена стандарт">
+            <input  type="text" name="low_price"    placeholder="Цена эконом">
+            <input  type="text" name="middle_price"   placeholder="Цена стандарт">
             <input  type="text" name="lux_price"     placeholder="Цена люкс">
           </div>
         </div>

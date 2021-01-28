@@ -1,11 +1,13 @@
-const {Router} = require('express');
+const {Router} = require('express')
 const router = Router();
+const Route = require('../models/route')
 
-router.get('/', (req, res) => {
-    res.status(200);
+router.get('/', async (req, res) => {
+    const routes = await Route.find().lean()
     res.render('routeslist', {
         title: 'Список маршрутов',
-        isRoutes: true
+        isRoutes: true,
+        routes
     })
 })
 

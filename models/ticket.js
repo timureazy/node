@@ -27,8 +27,11 @@ const ticket = new Schema({
         required: true
     },
     price: {
-        type: Number,
-        default: Math.floor(1000 + Math.random() * (10000 + 1 - 1000))
+        type: String,
+        required: true
+    },
+    date: {
+        type: String,
     }
 })
 

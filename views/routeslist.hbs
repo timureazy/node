@@ -1,2 +1,62 @@
 <h1>Список маршрутов</h1>
 
+{{#if routes.length}}
+<table class="centered responsive-table">
+        <thead>
+          <tr>
+              <th>Дата старта</th>
+              <th>Дата приезда</th>
+              <th>Откуда</th>
+              <th>Куда</th>
+              <th>Старт</th>
+              <th>Приезд</th>
+              <th>Эконом (мест) </th>
+              <th>Средний (мест)</th>
+              <th>Люкс (мест)</th>
+              <th>Эконом (цена) </th>
+              <th>Средний (цена)</th>
+              <th>Люкс (цена)</th>
+          </tr>
+        </thead>
+        <tbody>
+{{#each routes}}
+           
+           <tr>
+            <form action="/tickets" method="POST">
+            <td class="none"><input name="routeid" value={{_id}}></td>
+            <td class="none"><input name="start_date"    value="{{startDate}}"></td>
+            <td>{{startDate}}</td>
+            <td class="none"><input name="end_date"      value="{{endDate}}"></td>
+            <td>{{endDate}}</td>
+            <td class="none"><input name="from"          value="{{from}}"></td>
+            <td>{{from}}</td>
+            <td class="none"><input name="to"            value="{{to}}"></td>
+            <td>{{to}}</td>
+            <td class="none"><input name="start_time"    value="{{startTime}}"></td>
+            <td>{{startTime}}</td>
+            <td class="none"><input name="end_time"      value="{{endTime}}"></td>
+            <td>{{endTime}}</td>
+            <td class="none"><input name="lowTypeSeats"   value="{{lowTypeSeats}}"></td>
+            <td>{{lowTypeSeats}}    <button name="button"  id="low" value="{{lowPrice}}"class="btn" type="submit">Купить</button></td>
+
+            <td class="none"><input name="middleTypeSeats"   value="{{middleTypeSeats}}"></td>
+            <td>{{middleTypeSeats}} <button name="button" id="mid" class="btn" type="submit" value="{{middlePrice}}">Купить</button></td>
+
+            <td class="none"><input  name="luxTypeSeats"  value="{{luxTypeSeats}}"></td>
+            <td>{{luxTypeSeats}}    <button name="button" id="lux" class="btn" type="submit" value="{{luxPrice}}">Купить</button></td>
+
+            <td class="none"><input   value="{{lowPrice}}"></td>
+            <td class="price">{{lowPrice}}</td>
+            
+            <td class="none"><input   value="{{middlePrice}}"></td>
+            <td class="price">{{middlePrice}}</td>
+
+            <td class="none"><input value="{{luxPrice}}"></td>
+            <td class="price">{{luxPrice}} </td>
+            </form>
+          </tr>
+            {{/each}}
+        </tbody>
+      </table>
+{{/if}}
+

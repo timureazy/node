@@ -13,7 +13,3 @@ var instance = M.Collapsible.init(elem, {
 });
 
 
-document.querySelector('#addStock').addEventListener('click', function(){
-  fetch('/addroute', {method: 'post'})
-  console.log('fghfd')
-})
